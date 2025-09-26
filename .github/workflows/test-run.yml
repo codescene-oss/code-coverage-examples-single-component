@@ -1,0 +1,38 @@
+name: Coverage - Run Tests
+
+on:
+  push:
+    branches:
+      - main
+    paths:
+      - 'src/**'
+  pull_request:
+    branches:
+      - main
+    paths:
+      - 'src/**'
+  # workflow_call makes it possible to call this from another workflow, such as cloud deployment
+  workflow_call:
+  workflow_dispatch:
+
+# permissions needed for assuming the IAM role below
+permissions:
+  contents: read # This is required for actions/checkout
+  id-token: write # This is required for requesting the JWT
+
+jobs:
+  execute-tests:
+    runs-on: ubuntu-24.04
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: ${{ github.head_ref }}
+      - name: Playground
+        run: |
+          git branch
+          ls -al .
+          echo $(pwd)
+          echo "Base-Ref: ${{ github.base_ref }}"
+          echo "Head-Ref: ${{ github.head_ref }}"
+          env
+        shell: bash
