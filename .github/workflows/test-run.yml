@@ -1,12 +1,12 @@
 name: Coverage - Run Tests
 
 on:
-  push:
+  push: # workflow for pushes to the main branch
     branches:
       - main
     paths:
       - 'src/**'
-  pull_request:
+  pull_request: # workflow when opening PRs
     branches:
       - main
     paths:
@@ -27,12 +27,40 @@ jobs:
       - uses: actions/checkout@v4
         with:
           ref: ${{ github.head_ref }}
-      - name: Playground
-        run: |
-          git branch
-          ls -al .
-          echo $(pwd)
-          echo "Base-Ref: ${{ github.base_ref }}"
-          echo "Head-Ref: ${{ github.head_ref }}"
-          env
-        shell: bash
+      - name: Run tests with coverage
+        run: mvn clean install
+      - uses: actions/upload-artifact@v4
+        with:
+          path: target/site/jacoco/jacoco.xml
+          name: jacoco.xml # Just a single artifact so keep the name simple
+
+  cs-coverage-check:
+    runs-on: ubuntu-24.04
+    needs: [ execute-tests ]
+    if: always()
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          # fetch everything so that `cs-coverage check` can find merge-base.
+          fetch-depth: 0
+        # Download all artifacts/coverage files: https://github.com/actions/download-artifact#download-all-artifacts
+        # this also affects `coverage-files` property in the subsequent step
+      - name: download coverage
+        uses: actions/download-artifact@v5
+        with:
+          path: coverage/
+      # TODO: this reusable action is something we could (should?) share with customers
+      - uses: ./.github/actions/check-coverage
+        # TODO: if all the jobs are skipped (or fail terribly) then we might not have any coverage files
+        # available for further processing, and the check-coverage step will fail
+        # We should make it more robust by having a better condition here,
+        # and/or in the reusable action,
+        # and/or in the tool itself.
+        if: always()
+        with:
+          access-token: ${{ secrets.PROD_CS_API_TOKEN }}
+          project-url: "https://api.codescene.io/v2/projects/71803"
+          # Include coverage files from all the artifacts (jobs)
+          # NOTE:: if only one component is analyzed then there's only a single coverage/lcov.info file
+          # not nested as if multiple components: coverage/features.lcov.info/lcov.info, coverage/cloud.worker.lcov.info/lcov.info, etc.
+          coverage-files: "**/coverage/jacoco.xml"
