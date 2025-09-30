@@ -52,6 +52,7 @@ jobs:
       # TODO: this reusable action is something we could (should?) share with customers
       - name: debug
         run: |
+          env
           git log $(git rev-parse HEAD)
           git branch
           git log $(git branch)
