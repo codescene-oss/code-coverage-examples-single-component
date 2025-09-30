@@ -37,4 +37,8 @@ public class Calculator {
     private double add(double firstOperand, double secondOperand) {
         return firstOperand + secondOperand;
     }
+
+    private double square(double theNumberToSquare) {
+        return theNumberToSquare * theNumberToSquare;
+    }
 }
