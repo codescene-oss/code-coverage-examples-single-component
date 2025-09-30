@@ -3,12 +3,12 @@ name: Coverage - Run Tests
 on:
   push: # workflow for pushes to the main branch
     branches:
-      - main
+      - master
     paths:
       - 'src/**'
   pull_request: # workflow when opening PRs
     branches:
-      - main
+      - master
     paths:
       - 'src/**'
   # workflow_call makes it possible to call this from another workflow, such as cloud deployment
