@@ -55,7 +55,7 @@ jobs:
           env
           git log $(git rev-parse HEAD)
 
-          git log ${GITHUB_HEAD_REF}
+          git log "origin/${GITHUB_HEAD_REF}"
       - uses: ./.github/actions/check-coverage
         # TODO: if all the jobs are skipped (or fail terribly) then we might not have any coverage files
         # available for further processing, and the check-coverage step will fail
