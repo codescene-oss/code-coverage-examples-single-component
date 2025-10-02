@@ -7,7 +7,7 @@ public class ConditionalExample {
      * coverage: docs are non-executable lines.
      * @param num (a great name for an argument, isn't it?)
      * @return Nothing. This method is all about side-effects.
-     */ */
+     */
     public void checkNumber(int num) {
         if (num > 0) {
             // Let's add a comment inside the method body.
