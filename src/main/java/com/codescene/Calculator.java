@@ -4,8 +4,9 @@ public class Calculator {
     public double calculate(double firstOperand, double secondOperand, char operator){
         switch (operator){
             case '+':{
-                final double result = add(firstOperand,secondOperand)
+                final double result = add(firstOperand,secondOperand);
                 System.out.println("Adding " + firstOperand " + " + secondOperand " = " result);
+                
                 return result;
             }
             case '-':{
