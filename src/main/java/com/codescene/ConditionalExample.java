@@ -11,6 +11,7 @@ public class ConditionalExample {
     public void checkNumber(int num) {
         if (num > 0) {
             // Let's add a comment inside the method body.
+            // ============================================= <- one added comment line
             // We'll use this comment block as a modification target in 
             // various PRs to illustrate how comments are filtered out from 
             // the coverage checks.
