@@ -39,7 +39,7 @@ public class Calculator {
     }
 
     private double square(double theNumberToSquare) {
-        // tiny small change
+        // tiny change
         return theNumberToSquare * theNumberToSquare;
     }
 }
