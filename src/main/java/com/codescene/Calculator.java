@@ -5,8 +5,8 @@ public class Calculator {
         switch (operator){
             case '+':{
                 final double result = add(firstOperand,secondOperand);
-                System.out.println("Adding " + firstOperand " + " + secondOperand " = " result);
-                
+                System.out.println("Adding " + firstOperand " + " + secondOperand + " = " + result);
+
                 return result;
             }
             case '-':{
