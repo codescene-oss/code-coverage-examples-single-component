@@ -1,7 +1,7 @@
-# Example repo to demonstrate Code Coverage Gates with CodeScene
+# Simple repo to demonstrate Code Coverage Gates with CodeScene
 
-This repository contains some simple Java code with unit tests. The purpose of the repo is to illustrate how CodeScene's code coverage gates work, as well 
-as giving concrete examples on what the gating looks like for various scenarios. (e.g. lack of coverage in new code, updating non-executable lines of code, etc.).
+This repository contains one simple Java module with unit tests. The purpose of the repo is to illustrate how CodeScene's code coverage gates work, as well 
+as give concrete examples of what the gating looks like for various scenarios. (e.g. lack of coverage in new code, updating non-executable lines of code, etc.).
 
 As such, this repository is part of the CodeScene product documentation.
 
