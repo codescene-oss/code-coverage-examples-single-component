@@ -1,3 +1,5 @@
+ARCHIVED: See https://github.com/codescene-oss/code-coverage-examples-single-component instead.
+
 # Simple repo to demonstrate Code Coverage Gates with CodeScene
 
 This repository contains one simple Java module with unit tests. The purpose of the repo is to illustrate how CodeScene's code coverage gates work, as well 
