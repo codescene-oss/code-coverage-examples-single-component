@@ -17,3 +17,4 @@ You find the xml file in target/site/jacoco/jacoco.xml
 
 There is a playground workflow .github/workflows/test-run.yml
 which can be executed manualy or on every PR open/update.
+
