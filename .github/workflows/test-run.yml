@@ -49,13 +49,7 @@ jobs:
         uses: actions/download-artifact@v5
         with:
           path: coverage/
-      # TODO: this reusable action is something we could (should?) share with customers
       - uses: ./.github/actions/check-coverage
-        # TODO: if all the jobs are skipped (or fail terribly) then we might not have any coverage files
-        # available for further processing, and the check-coverage step will fail
-        # We should make it more robust by having a better condition here,
-        # and/or in the reusable action,
-        # and/or in the tool itself.
         if: always()
         with:
           access-token: ${{ secrets.CODESCENE_CODE_COVERAGE_API_TOKEN }}
