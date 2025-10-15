@@ -53,7 +53,7 @@ jobs:
         if: always()
         with:
           access-token: ${{ secrets.CODESCENE_CODE_COVERAGE_API_TOKEN }}
-          project-url: "https://api.codescene.io/v2/projects/${{ secrets.CODESCENE_CODE_COVERAGE_PROJECT_ID }}"
+          project-url: "https://api.codescene.io/v2/projects/72308"
           # Include coverage files from all the artifacts (jobs)
           # NOTE:: if only one component is analyzed then there's only a single coverage/lcov.info file
           # not nested as if multiple components: coverage/features.lcov.info/lcov.info, coverage/cloud.worker.lcov.info/lcov.info, etc.
