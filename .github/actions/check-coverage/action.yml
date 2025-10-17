@@ -22,8 +22,7 @@ runs:
       run: |
         echo "Using environment: ${{ inputs.environment }}"
         test -d $(pwd)/coverage/ && ls -alR $(pwd)/coverage/
-        # you can add --verbose flag for the check command below if you want to see more details in the logs
-        $(pwd)/cs-coverage check --coverage-files "${{ inputs.coverage-files }}"
+        $(pwd)/cs-coverage check --verbose --coverage-files "${{ inputs.coverage-files }}"
       env:
         STAGING_CS_PROJECT_URL: ${{ inputs.project-url }}
         STAGING_CS_ACCESS_TOKEN: ${{ inputs.access-token }}
