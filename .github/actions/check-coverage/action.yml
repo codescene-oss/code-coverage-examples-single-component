@@ -24,9 +24,6 @@ runs:
         test -d $(pwd)/coverage/ && ls -alR $(pwd)/coverage/
         $(pwd)/cs-coverage check --verbose --coverage-files "${{ inputs.coverage-files }}"
       env:
-        STAGING_CS_PROJECT_URL: ${{ inputs.project-url }}
-        STAGING_CS_ACCESS_TOKEN: ${{ inputs.access-token }}
         CS_PROJECT_URL: ${{ inputs.project-url }}
         CS_ACCESS_TOKEN: ${{ inputs.access-token }}
-        CS_ENV: ${{ inputs.environment }}
       shell: bash
