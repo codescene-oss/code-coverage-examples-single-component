@@ -61,6 +61,17 @@ public class ConditionalExampleTest {
         assertEquals("Short and contains numbers", result);
     }
 
+    @Test 
+    public void emptyStringsDoNotContainVowels() {
+        assertEquals(0, example.countVowels(""));
+    }
+
+    @Test 
+    public void countsVowels() {
+        assertEquals(0, example.countVowels("qwrt"));
+        assertEquals(2, example.countVowels("aqewrt"));
+    }
+
     @Test
     public void tearDown() {
         System.setOut(originalOut);
