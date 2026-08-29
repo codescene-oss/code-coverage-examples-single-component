@@ -1,4 +1,5 @@
 package com.codescene;
+import java.util.*; // <- a non-executable line of code
 
 public class ConditionalExample {
 
