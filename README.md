@@ -23,3 +23,7 @@ You'll then find the generated XML coverage report in `target/site/jacoco/jacoco
 ### github workflow
 
 There is a playground workflow [.github/workflows/test-run.yml](./.github/workflows/test-run.yml) which demonstrates how to invoke the coverage tools.
+
+The reusable `check-coverage` action takes a numeric `project-id`, passes it to
+`cs-coverage check --project-id`, and accepts an optional `onprem-url` for
+CodeScene On-prem. For Cloud projects, the action uses the CLI's default API URL.
